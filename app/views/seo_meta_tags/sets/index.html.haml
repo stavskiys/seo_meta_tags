@@ -1,9 +1,32 @@
+= stylesheet_link_tag "seo_meta_tags/sets"
+= content_for :after_scripts do
+  = javascript_include_tag 'seo_meta_tags/filter'
+  :javascript
+    $(document).ready(function(){
+      $('#filter_row').SeoSetFilter({ $applyEl: $('#filter_apply') });
+    });
+
 %h3
   СЕО
 
   = link_to 'Создать', new_set_path, class: 'btn btn-success pull-right'
 
+%br
 %table.table.table-striped.table-bordered.col-md-12
+  %tr#filter_row
+    %td= text_field_tag 'filter[id]', page_filter[:id]
+    %td= text_field_tag 'filter[url]', page_filter[:url]
+    %td= text_field_tag 'filter[title]', page_filter[:title]
+    %td= text_field_tag 'filter[description]', page_filter[:description]
+    %td= text_field_tag 'filter[keywords]', page_filter[:keywords]
+    %td
+    %td
+      = link_to sets_path, class: 'btn btn-xs', title: 'Применить', id: 'filter_apply' do
+        %i.glyphicon.glyphicon-filter
+
+      = link_to sets_path(reset_filter: 1), class: 'btn btn-xs', title: 'Сбросить', id: 'filter_reset' do
+        %i.glyphicon.glyphicon-stop
+
   %tr
     %th #
     %th Url
@@ -22,7 +45,7 @@
       %td= item.description
       %td= item.keywords
       %td= item.images_alt
-      %th
+      %td
         = link_to edit_set_path(item), class: 'btn btn-warning btn-xs' do
           %i.glyphicon.glyphicon-pencil
         = link_to set_path(item), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger btn-xs' do

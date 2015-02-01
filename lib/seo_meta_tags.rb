@@ -9,6 +9,8 @@ module SeoMetaTags
     layout: 'application',
     parent_controller_class: 'ApplicationController',
     include_helper: 'ApplicationHelper',
+    error_partial: 'errors',
+    store_filter_params: true,
     default_meta_data: {
       title: '',
       meta_description: '',

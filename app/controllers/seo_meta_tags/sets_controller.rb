@@ -6,7 +6,7 @@ module SeoMetaTags
     layout SeoMetaTags.config[:layout]
 
     def index
-      @list = SeoMetaTags::SeoSet.paginate(per_page: 20, page: params[:page])
+      @list = SeoMetaTags::SeoSet.filter_by(page_filter).paginate(per_page: 10, page: params[:page])
     end
 
     def show

@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w( seo_meta_tags/jquery.jsoneditor.js seo_meta_tags/jsoneditor.css )
+Rails.application.config.assets.precompile += %w( seo_meta_tags/sets.css seo_meta_tags/filter.js )

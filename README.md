@@ -24,7 +24,9 @@ gem "seo_meta_tags", git: 'https://github.com/stavskiys/seo_meta_tags.git'
 
 In main app inside `routes.rb` you should mount angine:
 ```
- mount SeoMetaTags::Engine => "/seo"
+namespace :admin do
+  mount SeoMetaTags::Engine => "/seo"
+end
 ```
 
 Default settings.

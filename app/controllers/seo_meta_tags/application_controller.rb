@@ -6,7 +6,7 @@ module SeoMetaTags
     private
 
     def page_filter
-      return params[:filter] unless SeoMetaTags.config[:store_filter_params]
+      return params[:filter] || {} unless SeoMetaTags.config[:store_filter_params]
 
       if params[:filter]
         session[:filter] = { controller_action_key => params[:filter] }

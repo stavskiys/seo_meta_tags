@@ -39,9 +39,10 @@ module SeoMetaTags
       end
     end
 
-    def destory
+    def destroy
       @seo = SeoMetaTags::SeoSet.find(params[:id])
       @seo.destroy
+      redirect_to sets_path
     end
 
     private

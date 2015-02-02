@@ -29,6 +29,11 @@ namespace :admin do
 end
 ```
 
+Copy migration to main app if similar table not exixts.
+```
+rake seo_meta_tags:install:migrations
+```
+
 Default settings.
 
 ```
@@ -38,6 +43,7 @@ config = {
     include_helper: 'ApplicationHelper',
     error_partial: 'errors',
     store_filter_params: true,
+    table_name: 'seo_meta_tags_seo_sets',
     default_meta_data: {
       title: '',
       meta_description: '',
@@ -48,8 +54,13 @@ config = {
 ```
 
 If you need redefine default settings create a init file `config/initializers/seo_meta_tags_init.rb`
+
 ```
 SeoMetaTags.config = { ... }
+```
+or
+```
+SeoMetaTags.config[:layout] = 'admin'
 ```
 
 

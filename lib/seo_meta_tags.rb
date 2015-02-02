@@ -11,6 +11,7 @@ module SeoMetaTags
     include_helper: 'ApplicationHelper',
     error_partial: 'errors',
     store_filter_params: true,
+    table_name: 'seo_meta_tags_seo_sets',
     default_meta_data: {
       title: '',
       meta_description: '',

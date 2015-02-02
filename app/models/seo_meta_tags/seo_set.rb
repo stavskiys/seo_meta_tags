@@ -1,6 +1,8 @@
 module SeoMetaTags
   class SeoSet < ActiveRecord::Base
 
+    self.table_name = SeoMetaTags.config[:table_name]
+
     attr_accessible :url, :title, :description, :keywords, :images_alt
 
     serialize :images_alt, Hash

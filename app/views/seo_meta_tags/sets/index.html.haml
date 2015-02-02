@@ -29,12 +29,12 @@
 
   %tr
     %th #
-    %th Url
-    %th Title
-    %th Meta Description
-    %th Meta Keywords
-    %th Images Alt
-    %th Действия
+    %th.col-md-2 Url
+    %th.col-md-2 Title
+    %th.col-md-2 Meta Description
+    %th.col-md-2 Meta Keywords
+    %th.col.md-2 Images Alt
+    %th.col-md-1 Действия
 
 
   - @list.each do |item|
@@ -45,7 +45,7 @@
       %td= item.description
       %td= item.keywords
       %td= item.images_alt
-      %td
+      %td.element-actions
         = link_to edit_set_path(item), class: 'btn btn-warning btn-xs' do
           %i.glyphicon.glyphicon-pencil
         = link_to set_path(item), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger btn-xs' do

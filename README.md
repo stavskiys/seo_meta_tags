@@ -17,7 +17,7 @@
 ## Installation
 
 ```
-gem "seo_meta_tags", git: 'https://github.com/stavskiys/seo_meta_tags.git'+
+gem "seo_meta_tags", git: 'https://github.com/stavskiys/seo_meta_tags.git'
 ```
 
 ## Usage

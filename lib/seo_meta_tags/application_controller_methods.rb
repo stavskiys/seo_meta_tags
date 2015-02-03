@@ -12,7 +12,7 @@ module SeoMetaTags
     end
 
     def page_seo_set
-      return if params[:controller].include?('admin/')
+      return if params[:controller].include?(SeoMetaTags.config.skip_seo_set_loading_if_controller_include)
       url = request.env["PATH_INFO"]
       @seo_set = SeoMetaTags::SeoSet.where(url: url).first_or_initialize(SeoMetaTags.config[:default_meta_data])
     end

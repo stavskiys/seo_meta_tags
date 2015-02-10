@@ -15,8 +15,8 @@ module SeoMetaTags
     skip_seo_set_loading_if_controller_include: '/admin',
     default_meta_data: {
       title: '',
-      meta_description: '',
-      meta_keywords: '',
+      description: '',
+      keywords: '',
       images_alt: ''
     }
   }

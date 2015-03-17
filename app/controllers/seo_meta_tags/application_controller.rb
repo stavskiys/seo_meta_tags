@@ -11,7 +11,7 @@ module SeoMetaTags
       if params[:filter]
         session[:filter] = { controller_action_key => params[:filter] }
       end
-      session[:filter] = { controller_action_key => { } } if params[:reset_filter] || session[:filter].nil?
+      session[:filter] = { controller_action_key => { } } if params[:reset_filter] || session[:filter].nil? || session[:filter][controller_action_key].nil?
 
       session[:filter][controller_action_key].symbolize_keys
     end

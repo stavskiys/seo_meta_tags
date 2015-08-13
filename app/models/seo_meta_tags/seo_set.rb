@@ -3,8 +3,6 @@ module SeoMetaTags
 
     self.table_name = SeoMetaTags.config[:table_name]
 
-    attr_accessible :url, :title, :description, :keywords, :images_alt
-
     serialize :images_alt, Hash
 
     validates_uniqueness_of :url, :title, :description, :keywords
@@ -19,7 +17,7 @@ module SeoMetaTags
 
     def self.filter_by(params)
       @records = all
-      (params || {}).select { |k, v| !v.blank? }.slice(:id, :url, :title, :description, :keywords).each do |field, value|
+      (params || {}).select { |k, v| !v.blank? }.slice(:id, :namespace, :url, :title, :description, :keywords).each do |field, value|
         @records = @records.where("#{field} LIKE :#{field}", { field.to_sym => "%#{value}%" })
       end
 

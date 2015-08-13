@@ -48,7 +48,7 @@ module SeoMetaTags
     private
 
     def permitted_params
-      @permitted_params ||= params.require(:seo).permit(:url, :title, :description, :keywords, :images_alt)
+      @permitted_params ||= params.require(:seo).permit(:url, :title, :namespace, :description, :keywords, :images_alt)
     end
   end
 end

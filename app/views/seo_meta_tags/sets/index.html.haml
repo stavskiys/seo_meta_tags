@@ -15,6 +15,7 @@
 %table.table.table-striped.table-bordered.col-md-12
   %tr#filter_row
     %td= text_field_tag 'filter[id]', page_filter[:id]
+    %td= text_field_tag 'filter[namespace]', page_filter[:namespace]
     %td= text_field_tag 'filter[url]', page_filter[:url]
     %td= text_field_tag 'filter[title]', page_filter[:title]
     %td= text_field_tag 'filter[description]', page_filter[:description]
@@ -29,17 +30,19 @@
 
   %tr
     %th #
+    %th.col-md-1 Поддомен
     %th.col-md-2 Url
-    %th.col-md-2 Title
+    %th.col-md-1 Title
     %th.col-md-2 Meta Description
     %th.col-md-2 Meta Keywords
-    %th.col.md-2 Images Alt
+    %th.col.md-2 Img&nbsp;Alt
     %th.col-md-1 Действия
 
 
   - @list.each do |item|
     %tr
       %td= item.id
+      %td= item.namespace
       %td= item.url
       %td= item.title
       %td= item.description

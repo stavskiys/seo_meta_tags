@@ -1,14 +1,16 @@
 module SeoMetaTags
   class SeoSet < ActiveRecord::Base
 
-    self.table_name = SeoMetaTags.config[:table_name]
+    self.table_name = SeoMetaTags.config[:models][:table_name]
+
+    attr_accessible :url, :title, :namespace, :description, :keywords, :images_alt
 
     serialize :images_alt, Hash
 
     validates_uniqueness_of :url, :title, :description, :keywords
-    validates_length_of :title, maximum: 80
-    validates_length_of :description, maximum: 200
-    validates_length_of :keywords, maximum: 200
+    validates_length_of :title, maximum: SeoMetaTags.config[:models][:length_of_title]
+    validates_length_of :description, maximum: SeoMetaTags.config[:models][:length_of_description]
+    validates_length_of :keywords, maximum: SeoMetaTags.config[:models][:length_of_keywords]
 
     def images_alt=(images_alt_attr)
       images_alt_attr = images_alt_attr.blank? ? {} : JSON.parse(images_alt_attr)

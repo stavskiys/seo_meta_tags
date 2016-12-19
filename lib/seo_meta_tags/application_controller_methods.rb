@@ -13,6 +13,8 @@ module SeoMetaTags
 
     def page_seo_set
       return if params[:controller].include?(SeoMetaTags.config[:skip_seo_set_loading_if_controller_include])
+      return if params[:controller] == 'seo_meta_tags/sets'
+      
       url = request.env["PATH_INFO"]
 
       seo_set_relation = SeoMetaTags::SeoSet.where(url: url)
